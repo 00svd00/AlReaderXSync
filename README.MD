@@ -96,8 +96,7 @@ Fallback при недоступности Wi-Fi
 
 ### Компоненты
 
-text
-
+```
 app/src/main/java/ru/samorez/alreaderxsync/
 ├── MainActivity.kt                    # Главный экран (Phone + Reader)
 ├── SettingsActivity.kt                # Экран настроек
@@ -130,8 +129,9 @@ app/src/main/java/ru/samorez/alreaderxsync/
 │   ├── WifiHelper.kt                  # IP-адрес, проверка Wi-Fi
 │   └── WifiDirectTransport.kt         # Wi-Fi Direct (заглушка)
 └── ui/
- ├── MainViewModel.kt
- └── SyncViewModel.kt
+    ├── MainViewModel.kt
+    └── SyncViewModel.kt
+```
 
 ----------
 
