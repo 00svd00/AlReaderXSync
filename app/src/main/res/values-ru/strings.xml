@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================
+         Базовые строки (НЕ УДАЛЯТЬ)
+         ============================================================ -->
+    <string name="app_name" translatable="false">AlReaderX Sync</string>
+    <string name="settings_title">Настройки</string>
+
+    <!-- ============================================================
+         Роли устройства
+         ============================================================ -->
+    <string name="role_title">Роль устройства</string>
+    <string name="role_phone">Телефон</string>
+    <string name="role_reader">Ридер</string>
+    <string name="role_this_device">это устройство</string>
+
+    <!-- ============================================================
+         Главный экран
+         ============================================================ -->
+    <string name="main_connect_section">Подключение к ридеру</string>
+    <string name="main_last_peer_format">Последнее устройство: %1$s</string>
+    <string name="main_last_peer_none">Последнее устройство: —</string>
+    <string name="main_change_peer_button">Сменить устройство</string>
+    <string name="main_mode_section">Режим</string>
+    <string name="main_direction_section">Направление</string>
+    <string name="main_sync_button">Синхронизировать</string>
+    <string name="main_cancel_button">Отменить</string>
+    <string name="main_status_ready">Готово к синхронизации</string>
+    <string name="main_server_start" translatable="false">Start Server</string>
+    <string name="main_server_stop" translatable="false">Stop Server</string>
+    <string name="main_server_status_stopped">Статус: остановлен</string>
+    <string name="main_server_address_format">IP: %1$s / Порт: %2$d</string>
+
+    <!-- ============================================================
+         Режимы синхронизации
+         ============================================================ -->
+    <string name="mode_replace">Замена</string>
+    <string name="mode_merge">Объединение</string>
+    <string name="mode_help_desc">Справка по режиму</string>
+    <string name="direction_help_desc">Справка по направлению</string>
+    <string name="help_button_ok">Понятно</string>
+    <string name="direction_phone_to_reader">Телефон → Ридер</string>
+    <string name="direction_reader_to_phone">Ридер → Телефон</string>
+
+    <!-- ============================================================
+         Справка по режимам
+         %1$s — приёмник (target), %2$s — источник (source)
+         ============================================================ -->
+    <string name="mode_replace_help">
+        Режим «Замена»\n\n
+        Приводит содержимое %1$s в точное соответствие
+        с содержимым %2$s.\n\n
+        Как работает:\n
+        1. Сканируются оба каталога.\n
+        2. Файлы сравниваются по имени и размеру.\n
+        3. Отсутствующие на %1$s файлы — передаются.\n
+        4. Совпадающие по имени и размеру — пропускаются.\n
+        5. Несовпадающие — передаются заново.\n
+        6. Файлы на %1$s, которых нет на %2$s, — удаляются.\n\n
+        Внимание: файлы, удалённые на %2$s, будут
+        удалены и на %1$s.
+    </string>
+
+    <string name="mode_merge_help">
+        Режим «Объединение»\n\n
+        Добавляет на %1$s файлы с %2$s, но не удаляет
+        существующие.\n\n
+        Как работает:\n
+        1. Сканируются оба каталога.\n
+        2. Файлы сравниваются по имени и размеру.\n
+        3. Отсутствующие на %1$s файлы — передаются.\n
+        4. Совпадающие — пропускаются.\n
+        5. Несовпадающие — передаются заново.\n
+        6. Лишние файлы на %1$s — остаются.\n\n
+        Внимание: если на %1$s есть файлы, удалённые
+        на %2$s, они останутся. Со временем это может
+        привести к накоплению «мусора». Используйте режим
+        «Замена», чтобы очистить.
+    </string>
+
+    <!-- ============================================================
+         Справка по направлению
+         %1$s — источник, %2$s — приёмник
+         ============================================================ -->
+    <string name="direction_help">
+        Направление синхронизации\n\n
+        Определяет, с какого устройства на какое передаются
+        файлы.\n\n
+        Выбранное направление:\n
+        • Источник: %1$s\n
+        • Приёмник: %2$s\n\n
+        Что это значит:\n
+        • Файлы передаются с %1$s на %2$s.\n
+        • Если файл есть на %1$s, но нет на %2$s —
+        он будет передан.\n
+        • Если файл есть на обоих, но отличается по
+        размеру — он будет передан заново.\n
+        • Если файл есть на обоих и совпадает по имени
+        и размеру — он пропускается.\n\n
+        Важно: направление задаётся на телефоне.
+        Ридер всегда работает как сервер и выполняет
+        команду телефона.
+    </string>
+
+    <!-- ============================================================
+         Настройки — заголовки секций
+         ============================================================ -->
+    <string name="section_role">РОЛЬ УСТРОЙСТВА</string>
+    <string name="section_directories">КАТАЛОГИ</string>
+    <string name="section_transport">ТРАНСПОРТ</string>
+    <string name="section_retries">РЕТРАИ И ТАЙМАУТЫ</string>
+    <string name="section_state">СОСТОЯНИЕ</string>
+    <string name="section_advanced">ДОПОЛНИТЕЛЬНО</string>
+
+    <!-- ============================================================
+         Настройки — элементы
+         ============================================================ -->
+    <string name="select_alreader">Выбрать AlReaderX</string>
+    <string name="select_books">Выбрать Books</string>
+    <string name="books_inside_alreader">Книги внутри AlReaderX</string>
+    <string name="not_selected">не выбран</string>
+    <string name="transport_auto">Автоматически (Wi-Fi LAN → Bluetooth)</string>
+    <string name="transport_bluetooth_only">Только Bluetooth</string>
+    <string name="retries_format">%1$d попыток × %2$d сек</string>
+    <string name="check_transports">Проверить транспорты</string>
+
+    <!-- Явное сохранение -->
+    <string name="save_settings">Сохранить настройки</string>
+    <string name="settings_saved">Настройки сохранены</string>
+
+    <!-- ============================================================
+         Уведомления foreground service (синхронизация)
+         ============================================================ -->
+    <string name="notification_channel_sync">Синхронизация</string>
+    <string name="notification_channel_sync_desc">
+        Уведомление о ходе синхронизации AlReaderX
+    </string>
+    <string name="notification_title" translatable="false">AlReaderX Sync</string>
+    <string name="notification_cancel">Отмена</string>
+    <string name="notification_preparing">Подготовка…</string>
+    <string name="notification_connecting">Установка соединения…</string>
+    <string name="notification_task_format">
+        Задача %1$d/%2$d: %3$s
+    </string>
+    <string name="notification_task_wifi_format">
+        Задача %1$d/%2$d: %3$s (Wi-Fi LAN)
+    </string>
+    <string name="notification_task_bt_format">
+        Задача %1$d/%2$d: %3$s (Bluetooth)
+    </string>
+    <string name="notification_complete_format">
+        Завершено: %1$d файлов, %2$d ошибок
+    </string>
+
+    <!-- ============================================================
+         Статус синхронизации на главном экране
+         ============================================================ -->
+    <string name="sync_status_preparing">Подготовка…</string>
+    <string name="sync_status_connecting">Установка соединения…</string>
+    <string name="sync_status_cancelled">Синхронизация отменена</string>
+    <string name="sync_status_error_format">Ошибка: %1$s</string>
+    <string name="sync_status_complete_format">
+        Завершено: %1$d файлов, %2$d ошибок
+    </string>
+
+    <!-- ============================================================
+         Toast-сообщения (общие)
+         ============================================================ -->
+    <string name="toast_sync_in_progress">
+        Синхронизация уже выполняется
+    </string>
+    <string name="toast_no_peer">Сначала выберите устройство</string>
+    <string name="toast_permissions_required">
+        Нужны разрешения Bluetooth
+    </string>
+    <string name="toast_notifications_required">
+        Разрешите уведомления для синхронизации в фоне
+    </string>
+
+    <!-- ============================================================
+         Toast-сообщения (MainActivity)
+         ============================================================ -->
+    <string name="toast_wait_sync_finish">Дождитесь завершения синхронизации</string>
+    <string name="toast_bluetooth_not_enabled">Bluetooth не включён</string>
+    <string name="toast_device_not_discoverable">Устройство не стало видимым</string>
+    <string name="toast_bluetooth_unavailable">Bluetooth недоступен</string>
+    <string name="toast_searching_devices">Поиск устройств…</string>
+    <string name="toast_devices_not_found">Устройства не найдены</string>
+    <string name="toast_confirm_pairing">Подтвердите пейринг на обоих устройствах</string>
+    <string name="toast_pairing_failed">Не удалось спарить устройство</string>
+    <string name="toast_no_saved_device">Нет сохранённого устройства</string>
+
+    <!-- ============================================================
+         Валидация перед синхронизацией
+         ============================================================ -->
+    <string name="validation_alreader_not_selected">
+        Выберите каталог AlReaderX.
+        Настройки → Каталоги → Выбрать AlReaderX
+    </string>
+    <string name="validation_books_not_selected">
+        Выберите каталог Books или отметьте
+        «Книги внутри AlReaderX» в настройках
+    </string>
+
+    <!-- ============================================================
+         Диалоги
+         ============================================================ -->
+    <string name="dialog_role_title">Выберите роль устройства</string>
+    <string name="dialog_role_message">
+        Это приложение работает на двух устройствах.
+        Выберите роль для текущего:
+    </string>
+    <string name="dialog_select_device_title">Выберите устройство</string>
+    <string name="dialog_cancel">Отмена</string>
+    <string name="device_unknown" translatable="false">Unknown</string>
+
+    <!-- ============================================================
+         Транспорт (отображение в UI)
+         ============================================================ -->
+    <string name="transport_display_wifi_lan" translatable="false">Wi-Fi LAN</string>
+    <string name="transport_display_bluetooth" translatable="false">Bluetooth</string>
+    <string name="transport_display_format">Транспорт: %1$s</string>
+
+    <!-- ============================================================
+         Статус сервера (Reader)
+         ============================================================ -->
+    <string name="server_waiting_for_client">Ожидание клиента…</string>
+    <string name="server_connected_format">Подключено: %1$s</string>
+    <string name="server_task_format">Задача %1$d/%2$d: %3$s</string>
+    <string name="server_task_transport_format">Задача %1$d/%2$d: %3$s (%4$s)</string>
+    <string name="server_complete_format">Готово (файлов: %1$d, ошибок: %2$d)</string>
+    <string name="server_error_format">Ошибка: %1$s</string>
+
+    <!-- ============================================================
+         SettingsActivity — Toast
+         ============================================================ -->
+    <string name="toast_settings_sync_unavailable">
+        Синхронизация выполняется. Настройки недоступны.
+    </string>
+    <string name="toast_settings_closed_sync_started">
+        Синхронизация запущена. Настройки закрыты.
+    </string>
+    <string name="toast_settings_closed_server_started">
+        Сервер синхронизации запущен. Настройки закрыты.
+    </string>
+
+    <!-- ============================================================
+         SettingsActivity — панель состояния
+         ============================================================ -->
+    <string name="wifi_status_format">Wi-Fi: %1$s</string>
+    <string name="wifi_state_enabled">включён</string>
+    <string name="wifi_state_disabled">выключен</string>
+
+    <string name="ip_status_format">IP: %1$s</string>
+
+    <string name="bt_status_format">Bluetooth: %1$s</string>
+    <string name="bt_state_unavailable">недоступен</string>
+    <string name="bt_state_enabled">включён</string>
+    <string name="bt_state_disabled">выключен</string>
+
+    <!-- ============================================================
+         SettingsActivity — пути каталогов
+         ============================================================ -->
+    <string name="path_alreader_selected_format">AlReaderX: %1$s</string>
+    <string name="path_alreader_not_selected">AlReaderX: не выбран</string>
+    <string name="path_books_selected_format">Books: %1$s</string>
+    <string name="path_books_not_selected">Books: не выбран</string>
+
+    <!-- ============================================================
+         Отчёт «Проверка транспортов»
+         ============================================================ -->
+    <string name="check_transports_title">Состояние транспортов</string>
+    <string name="check_transports_ok" translatable="false">OK</string>
+
+    <string name="check_transports_report_header">Проверка транспортов</string>
+    <string name="check_transports_section_wifi">Wi-Fi LAN:</string>
+    <string name="check_transports_wifi_enabled">✓ Wi-Fi включён</string>
+    <string name="check_transports_wifi_disabled">✗ Wi-Fi выключен</string>
+    <string name="check_transports_ip_ok_format">✓ IP-адрес: %1$s</string>
+    <string name="check_transports_ip_fail">✗ IP-адрес не получен</string>
+
+    <string name="check_transports_section_bt">Bluetooth:</string>
+    <string name="check_transports_bt_unsupported">✗ Не поддерживается устройством</string>
+    <string name="check_transports_bt_enabled">✓ Включён</string>
+    <string name="check_transports_bt_disabled">✗ Выключен</string>
+    <string name="check_transports_bt_no_permission">⚠ Нет разрешения BLUETOOTH_CONNECT</string>
+    <string name="check_transports_bt_bonded_count_format">✓ Спарено устройств: %1$d</string>
+    <string name="check_transports_bt_bonded_item_format">• %1$s (%2$s)</string>
+    <string name="check_transports_bt_bonded_more_format">• ... и ещё %1$d</string>
+    <string name="check_transports_bt_no_bonded">⚠ Нет спаренных устройств</string>
+
+    <string name="check_transports_mode_header">Выбран режим транспорта:</string>
+    <string name="check_transports_mode_auto">Автоматически</string>
+    <string name="check_transports_mode_bt_only">Только Bluetooth</string>
+
+    <string name="check_transports_recommend_bt_off">
+        ⚠ Bluetooth выключен. Синхронизация не сможет подключиться.
+    </string>
+    <string name="check_transports_recommend_bt_only">
+        ℹ Синхронизация пойдёт через Bluetooth. Wi-Fi LAN использоваться не будет.
+    </string>
+    <string name="check_transports_recommend_none">
+        ⚠ Ни Wi-Fi, ни Bluetooth не включены. Синхронизация не сможет подключиться.
+    </string>
+    <string name="check_transports_recommend_wifi_off">
+        ℹ Wi-Fi выключен. Синхронизация пойдёт через Bluetooth (fallback).
+    </string>
+    <string name="check_transports_recommend_wifi_on">
+        ℹ Wi-Fi включён. Синхронизация пойдёт через Wi-Fi LAN, при неудаче — Bluetooth.
+    </string>
+
+    <!-- ============================================================
+         SyncService — уведомления и статусы
+         ============================================================ -->
+    <string name="sync_error_cancelled">Отменено</string>
+    <string name="sync_error_unknown">Ошибка</string>
+    <string name="sync_error_connect_failed">Не удалось подключиться к ридеру</string>
+    <string name="sync_error_no_response">Нет ответа от ридера</string>
+    <string name="sync_error_rejected_format">Ридер отклонил: %1$s</string>
+    <string name="sync_error_unknown_reason">неизвестно</string>
+
+    <!-- ============================================================
+         SyncServerService — уведомления и статусы
+         ============================================================ -->
+    <string name="server_notification_channel_name" translatable="false">Sync Server</string>
+    <string name="server_notification_channel_desc" translatable="false">AlReaderX Sync server</string>
+    <string name="server_notification_waiting">Ожидание подключения</string>
+    <string name="server_notification_waiting_address_format">Ожидание: %1$s:%2$d</string>
+    <string name="server_notification_connected_format">Подключено: %1$s</string>
+    <string name="server_notification_syncing_format">
+        Синхронизация: %1$s (%2$d/%3$d) [%4$s]
+    </string>
+    <string name="server_notification_complete_format">
+        Завершено: %1$d файлов
+    </string>
+    <string name="server_error_handshake_failed" translatable="false">Handshake failed</string>
+    <string name="server_error_no_request" translatable="false">No request</string>
+    <string name="server_error_unknown" translatable="false">Unknown</string>
+
+</resources>

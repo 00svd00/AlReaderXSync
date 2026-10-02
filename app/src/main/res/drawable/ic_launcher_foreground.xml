@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Символ синхронизации (дуговые стрелки) сверху -->
+    <path
+        android:fillColor="#4FC3F7"
+        android:pathData="M54,20 A14,14 0 0,1 68,34 L72,34 L66,42 L60,34 L64,34 A10,10 0 0,0 54,24 Z" />
+    <path
+        android:fillColor="#4FC3F7"
+        android:pathData="M54,48 A14,14 0 0,1 40,34 L36,34 L42,26 L48,34 L44,34 A10,10 0 0,0 54,44 Z" />
+
+    <!-- Нижняя книга (тёмно-голубая) -->
+    <path
+        android:fillColor="#0277BD"
+        android:pathData="M28,76 L80,76 L80,84 L28,84 Z" />
+    <path
+        android:fillColor="#01579B"
+        android:pathData="M28,76 L28,84 L34,80 Z" />
+    <path
+        android:fillColor="#4FC3F7"
+        android:pathData="M34,79 L76,79 L76,81 L34,81 Z" />
+
+    <!-- Средняя книга (светло-голубая) -->
+    <path
+        android:fillColor="#039BE5"
+        android:pathData="M31,67 L83,67 L83,75 L31,75 Z" />
+    <path
+        android:fillColor="#0277BD"
+        android:pathData="M31,67 L31,75 L37,71 Z" />
+    <path
+        android:fillColor="#81D4FA"
+        android:pathData="M37,70 L79,70 L79,72 L37,72 Z" />
+
+    <!-- Верхняя книга (самая светлая) -->
+    <path
+        android:fillColor="#29B6F6"
+        android:pathData="M34,58 L86,58 L86,66 L34,66 Z" />
+    <path
+        android:fillColor="#0288D1"
+        android:pathData="M34,58 L34,66 L40,62 Z" />
+    <path
+        android:fillColor="#B3E5FC"
+        android:pathData="M40,61 L82,61 L82,63 L40,63 Z" />
+
+</vector>

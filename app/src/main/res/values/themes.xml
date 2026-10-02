@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Светлая тема приложения.
+        DayNight — чтобы автоматически переключаться на тёмную
+        при системном night mode (см. values-night/themes.xml).
+        NoActionBar — отключает системный ActionBar, используем свой Toolbar.
+    -->
+    <style name="Theme.AlReaderXSync"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Primary -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Secondary -->
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorSecondaryVariant">@color/color_accent_dark</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+
+        <!-- Поверхности и фон (следуют DayNight) -->
+        <item name="android:colorBackground">?attr/colorSurface</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorOnSurface">@color/on_surface_light</item>
+
+        <!-- Прозрачные системные панели — для edge-to-edge -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+        <!-- Тёмные иконки статус-бара на светлой теме -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">
+            true
+        </item>
+
+        <!-- Cutout: рисуем под «вырезом» -->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="p">
+            shortEdges
+        </item>
+    </style>
+
+</resources>

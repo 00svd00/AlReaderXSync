@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ============================================================
+         Хранилище (SAF)
+         ============================================================ -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!-- ============================================================
+         Интернет (для сокетов)
+         ============================================================ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ============================================================
+         Wi-Fi
+         ============================================================ -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- ============================================================
+         Bluetooth
+         ============================================================ -->
+    <!-- Устаревшие разрешения для Android 11 и ниже -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30" />
+
+    <!-- Разрешения для Android 12+.
+         neverForLocation — не используем BT для геолокации. -->
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- Для Bluetooth discovery на Android ≤ 12.
+         С Android 12 система требует FINE + COARSE одновременно. -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION"
+        android:maxSdkVersion="32" />
+
+    <!-- ============================================================
+         Foreground Service + WakeLock
+         ============================================================ -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AlReaderXSync"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- ============================================================
+             MainActivity — главный экран (Phone и Reader)
+             ============================================================ -->
+        <activity
+            android:name="ru.samorez.alreaderxsync.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AlReaderXSync">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ============================================================
+             SettingsActivity — экран настроек
+             ============================================================ -->
+        <activity
+            android:name="ru.samorez.alreaderxsync.SettingsActivity"
+            android:exported="false"
+            android:label="@string/settings_title"
+            android:parentActivityName="ru.samorez.alreaderxsync.MainActivity"
+            android:theme="@style/Theme.AlReaderXSync">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ru.samorez.alreaderxsync.MainActivity" />
+        </activity>
+
+        <!-- ============================================================
+             Серверная сторона (Reader)
+             ============================================================ -->
+        <service
+            android:name=".service.SyncServerService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+
+        <!-- ============================================================
+             Клиентская сторона (Phone)
+             ============================================================ -->
+        <service
+            android:name=".service.SyncService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false" />
+    </application>
+
+</manifest>

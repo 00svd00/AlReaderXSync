@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Primary цвета (одинаковые для светлой и тёмной темы) -->
+    <color name="color_primary">#1976D2</color>
+    <color name="color_primary_dark">#0D47A1</color>
+    <color name="color_accent">#FF4081</color>
+    <color name="color_accent_dark">#C2185B</color>
+
+    <!-- Поверхности для светлой темы -->
+    <color name="surface_light">#FFFFFF</color>
+    <color name="on_surface_light">#212121</color>
+
+    <!-- Поверхности для тёмной темы (используются через values-night) -->
+    <color name="surface_dark">#121212</color>
+    <color name="on_surface_dark">#E0E0E0</color>
+
+    <!-- Полупрозрачный разделитель -->
+    <color name="divider">#20000000</color>
+
+</resources>

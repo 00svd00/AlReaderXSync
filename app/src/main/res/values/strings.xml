@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================================
+         Base strings (DO NOT REMOVE)
+         ============================================================ -->
+    <string name="app_name" translatable="false">AlReaderX Sync</string>
+    <string name="settings_title">Settings</string>
+
+    <!-- ============================================================
+         Device roles
+         ============================================================ -->
+    <string name="role_title">Device role</string>
+    <string name="role_phone">Phone</string>
+    <string name="role_reader">Reader</string>
+    <string name="role_this_device">this device</string>
+
+    <!-- ============================================================
+         Main screen
+         ============================================================ -->
+    <string name="main_connect_section">Connect to reader</string>
+    <string name="main_last_peer_format">Last device: %1$s</string>
+    <string name="main_last_peer_none">Last device: —</string>
+    <string name="main_change_peer_button">Change device</string>
+    <string name="main_mode_section">Mode</string>
+    <string name="main_direction_section">Direction</string>
+    <string name="main_sync_button">Sync</string>
+    <string name="main_cancel_button">Cancel</string>
+    <string name="main_status_ready">Ready to sync</string>
+    <string name="main_server_start" translatable="false">Start Server</string>
+    <string name="main_server_stop" translatable="false">Stop Server</string>
+    <string name="main_server_status_stopped">Status: stopped</string>
+    <string name="main_server_address_format">IP: %1$s / Port: %2$d</string>
+
+    <!-- ============================================================
+         Sync modes
+         ============================================================ -->
+    <string name="mode_replace">Replace</string>
+    <string name="mode_merge">Merge</string>
+    <string name="mode_help_desc">Mode help</string>
+    <string name="direction_help_desc">Direction help</string>
+    <string name="help_button_ok">Got it</string>
+    <string name="direction_phone_to_reader">Phone → Reader</string>
+    <string name="direction_reader_to_phone">Reader → Phone</string>
+
+    <!-- ============================================================
+         Mode help
+         %1$s — target, %2$s — source
+         ============================================================ -->
+    <string name="mode_replace_help">
+        Replace mode\n\n
+        Makes the contents of %1$s match the contents of %2$s exactly.\n\n
+        How it works:\n
+        1. Both directories are scanned.\n
+        2. Files are compared by name and size.\n
+        3. Files missing on %1$s are transferred.\n
+        4. Files with matching name and size are skipped.\n
+        5. Files that differ are re-transferred.\n
+        6. Files on %1$s that don\'t exist on %2$s are deleted.\n\n
+        Note: files deleted on %2$s will also be deleted on %1$s.
+    </string>
+
+    <string name="mode_merge_help">
+        Merge mode\n\n
+        Adds files from %2$s to %1$s, without deleting existing ones.\n\n
+        How it works:\n
+        1. Both directories are scanned.\n
+        2. Files are compared by name and size.\n
+        3. Files missing on %1$s are transferred.\n
+        4. Matching files are skipped.\n
+        5. Files that differ are re-transferred.\n
+        6. Extra files on %1$s are kept.\n\n
+        Note: if %1$s has files that were deleted on %2$s, they will remain.
+        Over time this may accumulate "garbage". Use Replace mode to clean up.
+    </string>
+
+    <!-- ============================================================
+         Direction help
+         %1$s — source, %2$s — target
+         ============================================================ -->
+    <string name="direction_help">
+        Sync direction\n\n
+        Determines which device sends files to which.\n\n
+        Selected direction:\n
+        • Source: %1$s\n
+        • Target: %2$s\n\n
+        What this means:\n
+        • Files are transferred from %1$s to %2$s.\n
+        • If a file exists on %1$s but not on %2$s, it will be transferred.\n
+        • If a file exists on both but differs in size, it will be re-transferred.\n
+        • If a file exists on both and matches by name and size, it is skipped.\n\n
+        Important: direction is set on the phone. The reader always works as a server and executes the phone\'s command.
+    </string>
+
+    <!-- ============================================================
+         Settings — section headers
+         ============================================================ -->
+    <string name="section_role">DEVICE ROLE</string>
+    <string name="section_directories">DIRECTORIES</string>
+    <string name="section_transport">TRANSPORT</string>
+    <string name="section_retries">RETRIES AND TIMEOUTS</string>
+    <string name="section_state">STATE</string>
+    <string name="section_advanced">ADVANCED</string>
+
+    <!-- ============================================================
+         Settings — items
+         ============================================================ -->
+    <string name="select_alreader">Select AlReaderX</string>
+    <string name="select_books">Select Books</string>
+    <string name="books_inside_alreader">Books inside AlReaderX</string>
+    <string name="not_selected">not selected</string>
+    <string name="transport_auto">Automatic (Wi-Fi LAN → Bluetooth)</string>
+    <string name="transport_bluetooth_only">Bluetooth only</string>
+    <string name="retries_format">%1$d retries × %2$d sec</string>
+    <string name="check_transports">Check transports</string>
+
+    <!-- Save button -->
+    <string name="save_settings">Save settings</string>
+    <string name="settings_saved">Settings saved</string>
+
+    <!-- ============================================================
+         Foreground service notifications (sync)
+         ============================================================ -->
+    <string name="notification_channel_sync">Sync</string>
+    <string name="notification_channel_sync_desc">
+        AlReaderX sync progress notification
+    </string>
+    <string name="notification_title" translatable="false">AlReaderX Sync</string>
+    <string name="notification_cancel">Cancel</string>
+    <string name="notification_preparing">Preparing…</string>
+    <string name="notification_connecting">Connecting…</string>
+    <string name="notification_task_format">
+        Task %1$d/%2$d: %3$s
+    </string>
+    <string name="notification_task_wifi_format">
+        Task %1$d/%2$d: %3$s (Wi-Fi LAN)
+    </string>
+    <string name="notification_task_bt_format">
+        Task %1$d/%2$d: %3$s (Bluetooth)
+    </string>
+    <string name="notification_complete_format">
+        Completed: %1$d files, %2$d errors
+    </string>
+
+    <!-- ============================================================
+         Sync status on main screen
+         ============================================================ -->
+    <string name="sync_status_preparing">Preparing…</string>
+    <string name="sync_status_connecting">Connecting…</string>
+    <string name="sync_status_cancelled">Sync cancelled</string>
+    <string name="sync_status_error_format">Error: %1$s</string>
+    <string name="sync_status_complete_format">
+        Completed: %1$d files, %2$d errors
+    </string>
+
+    <!-- ============================================================
+         Toast messages (common)
+         ============================================================ -->
+    <string name="toast_sync_in_progress">
+        Sync is already running
+    </string>
+    <string name="toast_no_peer">Select a device first</string>
+    <string name="toast_permissions_required">
+        Bluetooth permissions required
+    </string>
+    <string name="toast_notifications_required">
+        Allow notifications for background sync
+    </string>
+
+    <!-- ============================================================
+         Toast messages (MainActivity)
+         ============================================================ -->
+    <string name="toast_wait_sync_finish">Wait for sync to finish</string>
+    <string name="toast_bluetooth_not_enabled">Bluetooth is not enabled</string>
+    <string name="toast_device_not_discoverable">Device did not become discoverable</string>
+    <string name="toast_bluetooth_unavailable">Bluetooth is unavailable</string>
+    <string name="toast_searching_devices">Searching for devices…</string>
+    <string name="toast_devices_not_found">No devices found</string>
+    <string name="toast_confirm_pairing">Confirm pairing on both devices</string>
+    <string name="toast_pairing_failed">Failed to pair device</string>
+    <string name="toast_no_saved_device">No saved device</string>
+
+    <!-- ============================================================
+         Validation before sync
+         ============================================================ -->
+    <string name="validation_alreader_not_selected">
+        Select the AlReaderX directory.
+        Settings → Directories → Select AlReaderX
+    </string>
+    <string name="validation_books_not_selected">
+        Select the Books directory or enable
+        "Books inside AlReaderX" in settings
+    </string>
+
+    <!-- ============================================================
+         Dialogs
+         ============================================================ -->
+    <string name="dialog_role_title">Select device role</string>
+    <string name="dialog_role_message">
+        This app runs on two devices.
+        Select a role for the current one:
+    </string>
+    <string name="dialog_select_device_title">Select device</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="device_unknown" translatable="false">Unknown</string>
+
+    <!-- ============================================================
+         Transport (UI)
+         ============================================================ -->
+    <string name="transport_display_wifi_lan" translatable="false">Wi-Fi LAN</string>
+    <string name="transport_display_bluetooth" translatable="false">Bluetooth</string>
+    <string name="transport_display_format">Transport: %1$s</string>
+
+    <!-- ============================================================
+         Server status (Reader)
+         ============================================================ -->
+    <string name="server_waiting_for_client">Waiting for client…</string>
+    <string name="server_connected_format">Connected: %1$s</string>
+    <string name="server_task_format">Task %1$d/%2$d: %3$s</string>
+    <string name="server_task_transport_format">Task %1$d/%2$d: %3$s (%4$s)</string>
+    <string name="server_complete_format">Done (files: %1$d, errors: %2$d)</string>
+    <string name="server_error_format">Error: %1$s</string>
+
+    <!-- ============================================================
+         SettingsActivity — Toast
+         ============================================================ -->
+    <string name="toast_settings_sync_unavailable">
+        Sync is running. Settings unavailable.
+    </string>
+    <string name="toast_settings_closed_sync_started">
+        Sync started. Settings closed.
+    </string>
+    <string name="toast_settings_closed_server_started">
+        Sync server started. Settings closed.
+    </string>
+
+    <!-- ============================================================
+         SettingsActivity — state panel
+         ============================================================ -->
+    <string name="wifi_status_format">Wi-Fi: %1$s</string>
+    <string name="wifi_state_enabled">enabled</string>
+    <string name="wifi_state_disabled">disabled</string>
+
+    <string name="ip_status_format">IP: %1$s</string>
+
+    <string name="bt_status_format">Bluetooth: %1$s</string>
+    <string name="bt_state_unavailable">unavailable</string>
+    <string name="bt_state_enabled">enabled</string>
+    <string name="bt_state_disabled">disabled</string>
+
+    <!-- ============================================================
+         SettingsActivity — directory paths
+         ============================================================ -->
+    <string name="path_alreader_selected_format">AlReaderX: %1$s</string>
+    <string name="path_alreader_not_selected">AlReaderX: not selected</string>
+    <string name="path_books_selected_format">Books: %1$s</string>
+    <string name="path_books_not_selected">Books: not selected</string>
+
+    <!-- ============================================================
+         Check transports report
+         ============================================================ -->
+    <string name="check_transports_title">Transport state</string>
+    <string name="check_transports_ok" translatable="false">OK</string>
+
+    <string name="check_transports_report_header">Transport check</string>
+    <string name="check_transports_section_wifi">Wi-Fi LAN:</string>
+    <string name="check_transports_wifi_enabled">✓ Wi-Fi enabled</string>
+    <string name="check_transports_wifi_disabled">✗ Wi-Fi disabled</string>
+    <string name="check_transports_ip_ok_format">✓ IP address: %1$s</string>
+    <string name="check_transports_ip_fail">✗ IP address not obtained</string>
+
+    <string name="check_transports_section_bt">Bluetooth:</string>
+    <string name="check_transports_bt_unsupported">✗ Not supported by device</string>
+    <string name="check_transports_bt_enabled">✓ Enabled</string>
+    <string name="check_transports_bt_disabled">✗ Disabled</string>
+    <string name="check_transports_bt_no_permission">⚠ No BLUETOOTH_CONNECT permission</string>
+    <string name="check_transports_bt_bonded_count_format">✓ Paired devices: %1$d</string>
+    <string name="check_transports_bt_bonded_item_format">• %1$s (%2$s)</string>
+    <string name="check_transports_bt_bonded_more_format">• ... and %1$d more</string>
+    <string name="check_transports_bt_no_bonded">⚠ No paired devices</string>
+
+    <string name="check_transports_mode_header">Selected transport mode:</string>
+    <string name="check_transports_mode_auto">Automatic</string>
+    <string name="check_transports_mode_bt_only">Bluetooth only</string>
+
+    <string name="check_transports_recommend_bt_off">
+        ⚠ Bluetooth is disabled. Sync will not be able to connect.
+    </string>
+    <string name="check_transports_recommend_bt_only">
+        ℹ Sync will use Bluetooth. Wi-Fi LAN will not be used.
+    </string>
+    <string name="check_transports_recommend_none">
+        ⚠ Neither Wi-Fi nor Bluetooth is enabled. Sync will not be able to connect.
+    </string>
+    <string name="check_transports_recommend_wifi_off">
+        ℹ Wi-Fi is disabled. Sync will fall back to Bluetooth.
+    </string>
+    <string name="check_transports_recommend_wifi_on">
+        ℹ Wi-Fi is enabled. Sync will use Wi-Fi LAN, falling back to Bluetooth on failure.
+    </string>
+
+    <!-- ============================================================
+         SyncService — notifications and states
+         ============================================================ -->
+    <string name="sync_error_cancelled">Cancelled</string>
+    <string name="sync_error_unknown">Error</string>
+    <string name="sync_error_connect_failed">Failed to connect to reader</string>
+    <string name="sync_error_no_response">No response from reader</string>
+    <string name="sync_error_rejected_format">Reader rejected: %1$s</string>
+    <string name="sync_error_unknown_reason">unknown</string>
+
+    <!-- ============================================================
+         SyncServerService — notifications and states
+         ============================================================ -->
+    <string name="server_notification_channel_name" translatable="false">Sync Server</string>
+    <string name="server_notification_channel_desc" translatable="false">AlReaderX Sync server</string>
+    <string name="server_notification_waiting">Waiting for connection</string>
+    <string name="server_notification_waiting_address_format">Waiting: %1$s:%2$d</string>
+    <string name="server_notification_connected_format">Connected: %1$s</string>
+    <string name="server_notification_syncing_format">
+        Syncing: %1$s (%2$d/%3$d) [%4$s]
+    </string>
+    <string name="server_notification_complete_format">
+        Completed: %1$d files
+    </string>
+    <string name="server_error_handshake_failed" translatable="false">Handshake failed</string>
+    <string name="server_error_no_request" translatable="false">No request</string>
+    <string name="server_error_unknown" translatable="false">Unknown</string>
+
+</resources>

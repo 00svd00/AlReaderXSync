@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        Ночной вариант палитры.
+        Primary/accent оставляем как есть — бренд-цвет не меняется.
+        surface_light / on_surface_light переопределяются для тёмного фона.
+        surface_dark / on_surface_dark остаются как есть (они уже тёмные).
+    -->
+
+    <color name="color_primary">#1976D2</color>
+    <color name="color_primary_dark">#0D47A1</color>
+    <color name="color_accent">#FF4081</color>
+    <color name="color_accent_dark">#C2185B</color>
+
+    <!-- На тёмной теме surface_light тоже должен быть тёмным -->
+    <color name="surface_light">#121212</color>
+    <color name="on_surface_light">#E0E0E0</color>
+
+    <color name="surface_dark">#121212</color>
+    <color name="on_surface_dark">#E0E0E0</color>
+
+    <color name="divider">#40FFFFFF</color>
+
+</resources>
